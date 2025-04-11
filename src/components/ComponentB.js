@@ -1,11 +1,15 @@
+import { useContext } from 'react';
+import { ThemeContext } from '../context';
+
 const ComponentB = () => {
-    return (
-      <div>
-        <h3>Component B</h3>
-        <p>This will display the current theme context.</p>
-      </div>
-    );
-  };
-  
-  export default ComponentB;
-  
+  const { theme } = useContext(ThemeContext);
+
+  return (
+    <div>
+      <h3>Component B</h3>
+      <p>Current theme is: {theme}</p>
+    </div>
+  );
+};
+
+export default ComponentB;

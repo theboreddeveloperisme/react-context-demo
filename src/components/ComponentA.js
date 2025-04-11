@@ -1,11 +1,21 @@
+import { useContext } from 'react';
+import { ThemeContext } from '../context';
+
 const ComponentA = () => {
-    return (
-      <div>
-        <h3>Component A</h3>
-        <p>This will update the theme context.</p>
-      </div>
-    );
+  const { theme, setTheme } = useContext(ThemeContext);
+
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
   };
-  
-  export default ComponentA;
-  
+
+  return (
+    <div>
+      <h3>Component A</h3>
+      <button onClick={toggleTheme}>
+        Toggle Theme (currently: {theme})
+      </button>
+    </div>
+  );
+};
+
+export default ComponentA;
